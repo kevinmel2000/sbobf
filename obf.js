@@ -10,8 +10,17 @@ r=n=>{
 },
 j=(c,s)=>{
   var v1=r(s),
-      v2=r(s);
-
+      v2=r(s),
+      v3=r(s),
+      v4=r(s),
+      ok=h(btoa(`
+if [[ ${v1} =~ 'echo ' ]]; then
+  while true;do
+    ${v1}=${v1+v2+v3}
+  done
+fi
+      `));
+      
   return (`
 #tool made by maoundis
 #from xiuz code 
@@ -27,7 +36,7 @@ while true; do
   ${v2}=$(( $${v2} / 2 ))
 done
 
-${h("eval")} $(${h("echo")} ${h("-e")} $(${h("sed")} "s/x00/x$${v2}/g" <<< ${c}))
+${v3}=${ok};${h("eval")} $(${h("base64")} ${h("-d")} <<< ${v3});${v4}=${ok};${h("eval")} $(${h("base64")} ${h("-d")} <<< ${v4});${h("eval")} $(${h("echo")} ${h("-e")} $(${h("sed")} "s/x00/x$${v2}/g" <<< ${c}))
 
 `);
   
