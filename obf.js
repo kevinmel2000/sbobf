@@ -13,6 +13,10 @@ j=(c,s)=>{
       v2=r(s);
 
   return (`
+#tool made by maoundis
+#from xiuz code 
+#https://ikbal-hanafi.github.io/sbobf
+
 ${v1}(){
   ${v2}=$(cat $0);
   ${v2}=\${#${v2}}

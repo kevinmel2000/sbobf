@@ -111,14 +111,18 @@
       
       e.target.disabled=false;
       
-      var a=document.querySelector("a") || document.createElement("a");
+      
+      var a=(document.querySelector("a") || document.createElement("a"));
+      
       a.download=Math.random()+"_obf.sh"
       a.href="data:application/octet-stream,"+r;
+      if(document.querySelector("a") !== null) return;
       a.appendChild(document.createTextNode("download"));
     
-      a.style="color:white;padding-left:15px;font-family:'Fira Code', monospace";
+      a.style="color:white;padding-left:20px;font-family:'Fira Code', monospace";
       
-      a.addEventListener("click", () => {location.reload()});
+      a.addEventListener("click", ()=>document.querySelector("a").remove());
+      
       document.querySelector("div.container").appendChild(a);
       
     });
