@@ -105,7 +105,7 @@
       e.target.disabled=true;
       e.target.classList.add("disabled");
       
-      var r=escape(await obf(document.querySelector("textarea").value));
+      var r=escape(await obf(cm.getValue()));
       
       e.target.classList.remove("disabled");
       
