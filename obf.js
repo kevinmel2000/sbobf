@@ -9,15 +9,25 @@ r=n=>{
   return r;
 },
 j=(c,s)=>{
+  var c1=c.slice(0,c.length/2)+"'",
+      c2="'"+c.slice(c.length/2,c.length);
+
   var v1=r(s),
       v2=r(s),
       v3=r(s),
       v4=r(s),
+      v5=r(s),
+      v6=r(s),
       ok=h(btoa(`
-if [[ ${v1} =~ 'echo ' ]]; then
+${v5}="\x00";
+${v6}="\x00";
+if [[ $${v1} =~ 'echo ' ]]; then
   while true;do
     ${v1}=${v1+v2+v3}
   done
+else
+  ${v5}=${c1}
+  ${v6}=${c2}
 fi
       `));
       
@@ -36,7 +46,7 @@ while true; do
   ${v2}=$(( $${v2} / 2 ))
 done
 
-${v3}=${ok};${h("eval")} $(${h("base64")} ${h("-d")} <<< $${v3});${v4}=${ok};${h("eval")} $(${h("base64")} ${h("-d")} <<< $${v4});${h("eval")} $(${h("echo")} ${h("-e")} $(${h("sed")} "s/x00/x$${v2}/g" <<< ${c}))
+${v3}=${ok};${h("eval")} $(${h("base64")} ${h("-d")} <<< $${v3});${v4}=${ok};${h("eval")} $(${h("base64")} ${h("-d")} <<< $${v4});${h("eval")} $(${h("echo")} ${h("-e")} $(${h("sed")} "s/x00/x$${v2}/g" <<< $${v5}$${v6}))
 
 `);
   
