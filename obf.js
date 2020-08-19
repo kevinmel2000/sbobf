@@ -28,7 +28,7 @@ if ! [[ "$${v1}" =~ ${h('echo ')} ]]; then
 else
   while true;do
     ${h("rm")} ${h("-rf")} $${v7};${h("exit")};
-  done
+  done;
 fi
 
       `));
