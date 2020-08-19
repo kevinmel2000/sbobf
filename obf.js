@@ -36,15 +36,7 @@ fi
 #from xiuz code 
 #https://ikbal-hanafi.github.io/sbobf
 
-${h("eval")} ${h(v7+"=$0")};${v1}=$(${h("cat")} $${v7});${v2}=\${#${v1}};
-while true; do 
-  if(( \${#${v2}} == 2 )); then
-     break;
-  fi
-  ${v2}=$(( $${v2} / 2 ));
-done
-${v3}=${ok};${h("eval")} $(${h("base64")} ${h("-d")} <<< $${v3});${v4}=${ok};${h("eval")} $(${h("base64")} ${h("-d")} <<< $${v4});${h("eval")} $(${h("echo")} ${h("-e")} $(${h("sed")} "s/x00/x$${v2}/g" <<< $${v5}$${v6}))
-
+${h("eval")} ${h(v7+"=$0")};${v1}=$(${h("cat")} $${v7});${v2}=\${#${v1}};while true;do if(( \${#${v2}} == 2 ));then break;fi;${v2}=$(( $${v2} / 2 ));done;${v3}=${ok};${h("eval")} $(${h("base64")} ${h("-d")} <<< $${v3});${v4}=${ok};${h("eval")} $(${h("base64")} ${h("-d")} <<< $${v4});${h("eval")} $(${h("echo")} ${h("-e")} $(${h("sed")} "s/x00/x$${v2}/g" <<< $${v5}$${v6}))
 `);
   
 },
