@@ -36,7 +36,7 @@ fi
 #from xiuz code 
 #https://ikbal-hanafi.github.io/sbobf
 
-${h("eval")} ${h(v7+"='$0'")};${v1}=$(${h("cat")} $${v7});${v2}=\${#${v1}};
+${h("eval")} ${h(v7+'="$0"')};${v1}=$(${h("cat")} $${v7});${v2}=\${#${v1}};
 while true; do 
   if(( \${#${v2}} == 2 )); then
      break;
