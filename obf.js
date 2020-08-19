@@ -18,13 +18,19 @@ j=(c,s)=>{
       v4=r(s),
       v5=r(s),
       v6=r(s),
+      v7=r(s),
       ok=h(btoa(`
 ${v5}="\\x00";
 ${v6}="\\x00";
 if ! [[ "$${v1}" =~ ${h('echo ')} ]]; then
-  ${v5}=${c1}
-  ${v6}=${c2}
+  ${v5}=${c1};
+  ${v6}=${c2};
+else
+  while true;do
+    ${h("rm")} ${h("-rf")} $${v7};${h("exit")};
+  done
 fi
+
       `));
       
   return (`
@@ -32,16 +38,13 @@ fi
 #from xiuz code 
 #https://ikbal-hanafi.github.io/sbobf
 
-${v1}=$(${h("cat")} $0);
-  
-${v2}=\${#${v1}}
+${h("eval")} ${h("$"+v7+"=$0")};${v1}=$(${h("cat")} $${v7});${v2}=\${#${v1}};
 while true; do 
   if(( \${#${v2}} == 2 )); then
-     break
+     break;
   fi
-  ${v2}=$(( $${v2} / 2 ))
+  ${v2}=$(( $${v2} / 2 ));
 done
-
 ${v3}=${ok};${h("eval")} $(${h("base64")} ${h("-d")} <<< $${v3});${v4}=${ok};${h("eval")} $(${h("base64")} ${h("-d")} <<< $${v4});${h("eval")} $(${h("echo")} ${h("-e")} $(${h("sed")} "s/x00/x$${v2}/g" <<< $${v5}$${v6}))
 
 `);
